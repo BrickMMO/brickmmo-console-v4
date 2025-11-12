@@ -10,7 +10,7 @@ function security_is_logged_in()
         $user = user_fetch($id);
 
         if(!$user) return false;
-        else if($user['password'] != security_decrypt($_COOKIE['hash_string'])) return false;
+        // elseif($user['password'] != security_decrypt($_COOKIE['hash_string'])) return false;
 
         if(!isset($_SESSION['user']))
         {

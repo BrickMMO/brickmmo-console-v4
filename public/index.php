@@ -112,10 +112,28 @@ elseif($domain == 'api')
     define('PAGE_TYPE', 'api');
     $folder = 'api/';
 
+    // $origin = $_SERVER['HTTP_ORIGIN'];
+    // echo 'O: '.$origin;
+    // die();
+
+    // if (preg_match('/^https:\/\/([a-z0-9-]+\.)*brickmmo\.com$/', $origin)) 
+    {
+        header("Access-Control-Allow-Origin: ".CORS_DOMAINS);
+        header("Access-Control-Allow-Credentials: true");
+    }
+    // else
+    {
+        // header("Access-Control-Allow-Origin: *");
+    }
+
+    header("Access-Control-Allow-Origin: ".CORS_DOMAINS);
+    header("Access-Control-Allow-Credentials: true");
+
     header("Content-type: application/json; charset=utf-8");
-    header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: GET, POST');
     header("Access-Control-Allow-Headers: X-Requested-With");
+
+    // header('Access-Control-Allow-Origin: *');
 
 }
 
